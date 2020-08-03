@@ -1,0 +1,63 @@
+<div class="container">
+      <div class="row">
+        <div class="col-6 offset-3">
+          <div class="text-center">
+             <h1> <span *ngIf="schoolForm.value.id == null">Add School</span></h1>
+             <h1> <span *ngIf="schoolForm.value.id != null">Edit School</span> </h1> 
+          </div>                 
+        <form [formGroup]="schoolForm" >                 
+            <div class="form-group">
+              <label>Name School: </label>
+              <input class="form-control" formControlName="name"/>
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                  Hãy điền tên trường học
+                </div>
+              </div>
+            </div>  
+            <div class="form-group">
+              <label>Address School: </label>
+              <input class="form-control" formControlName="address"/>
+              <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+                <div *ngIf="address.errors.required">
+                  Hãy điền địa chỉ trường học
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="a">Logo School: </label>
+              <input class="form-control" formControlName= "logo"/>
+              <div *ngIf="logo.invalid && (logo.dirty || logo.touched)" class="alert alert-danger">
+                <div *ngIf="logo.errors.required">
+                  Hãy điền logo trường học
+                </div>
+                <div *ngIf="logo.errors.pattern">
+                  Đường dẫn ảnh không đúng
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>President: </label>
+              <input class="form-control" formControlName= "president"/>
+              <div *ngIf="president.invalid && (president.dirty || president.touched)" class="alert alert-danger">
+                <div *ngIf="president.errors.required">
+                  Hãy điền tên giám trường học
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Province: </label>
+              <input class="form-control" formControlName= "province"/>
+              <div *ngIf="province.invalid && (province.dirty || province.touched)" class="alert alert-danger">
+                <div *ngIf="province.errors.required">
+                  Hãy điền tên tỉnh trường học
+                </div>
+              </div>
+            </div> 
+            <div class="text-center">
+              <button class="btn btn-warning" (click)="saveSchool()" [disabled]="schoolForm.invalid">Save</button>
+            </div>                 
+        </form>       
+        </div>
+    </div>
+  </div> 

@@ -1,0 +1,46 @@
+<div class="container" *ngIf="schoolData != null">
+      <div class="row">
+        <div class="col-4">
+          <div class="card" style="width: 23rem;">
+            <h1 class="text-center">{{schoolData.name}}</h1>
+            <div class="text-center">
+              <img [src]="schoolData.logo" class="img img-avatar" alt="A girl" width="300">
+            </div>				
+            <div class="card-body">            
+              <h4 class="card-title">President: {{schoolData.president}}</h4>
+              <h4 class="card-title">Province: {{schoolData.province}}</h4>
+              <h4 class="card-title">Address: {{schoolData.address}}</h4>
+              <div class="text-center">
+                <a class="btn btn-danger" (click)="removeSchool()">Delete</a> &nbsp;
+                <a class="btn btn-danger" [routerLink]="['../../editSchool', schoolData.id]">Edit</a>&nbsp;
+                <a class="btn btn-dark" routerLink=''>Home</a>
+              </div>					
+            </div>
+          </div>
+        </div> 
+        <div class="col-8">
+          <div class="text-center">
+            <h2>List Class of {{schoolData.name}}</h2>						
+          </div>
+          <a class="btn btn-danger float-right" [routerLink]="['../../addClass', schoolData.id]">Add Class</a>
+          <table class="table">            
+            <thead>
+              <tr>
+                <th>Name Class</th>
+                <th>Total Student</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let lh of classes">
+              <tr>
+                <td><h5>{{lh.name}}</h5></td>
+                <td><h5>{{lh.totalStudent}}</h5></td>
+                <td>
+                  <a class="btn btn-primary" [routerLink]="['detailClass',lh.id]">Detail</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>

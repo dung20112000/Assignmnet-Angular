@@ -1,0 +1,15 @@
+<div class="container" >
+      <div class="row">
+        <div class="card col-6 offset-3 text-center" *ngIf="classData !=null">
+          <h1 class="text-center"><span class="badge badge-secondary">Detail Class</span></h1><hr>
+            <h2>Name: {{classData.name}}</h2>
+            <h2>Room Number: {{classData.roomNumber}}</h2>
+            <h2>Total Student: {{classData.totalStudent}}</h2>
+            <h2>Main Teacher: {{classData.mainTeacher}}</h2>
+            <div>
+              <a class="btn btn-info" (click)="removeClass()">Delete</a> &nbsp;
+              <a class="btn btn-info" [routerLink]="['../../editClass',classData.id]">Edit</a>
+            </div>
+        </div>
+    </div>
+  </div> 

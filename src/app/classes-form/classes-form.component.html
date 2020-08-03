@@ -1,0 +1,57 @@
+<div class="container" >
+      <div class="row">
+        <div class="card col-6 offset-3" >
+          <div class="text-center">
+             <h1> <span *ngIf="classForm.value.id == null">Add CLass</span></h1>
+             <h1> <span *ngIf="classForm.value.id != null">Edit Class</span> </h1> 
+          </div>
+            <form [formGroup]="classForm" >
+              <div class="form-group">
+                <label >Name CLass: </label>
+                <input class="form-control" formControlName="name" />
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                  <div *ngIf="name.errors.required">
+                    Hãy điền tên lớp học
+                  </div>
+                  <div *ngIf="name.errors.pattern">
+                    Tên lớp không đúng 
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Room NumBer: </label>
+                <input class="form-control" formControlName="roomNumber" />
+                <div *ngIf="roomNumber.invalid && (roomNumber.dirty || roomNumber.touched)" class="alert alert-danger">
+                  <div *ngIf="roomNumber.errors.required">
+                    Hãy điền số phòng
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Total Student: </label>
+                <input class="form-control" formControlName="totalStudent"/>
+                <div *ngIf="totalStudent.invalid && (totalStudent.dirty || totalStudent.touched)" class="alert alert-danger">
+                  <div *ngIf="totalStudent.errors.required">
+                    Hãy điền tổng số học sinh
+                  </div>
+                  <div *ngIf="totalStudent.errors.pattern">
+                    Tổng số học sinh phải là số và lớn hơn hoặc bằng 0
+                  </div>                  
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Main Teacher: </label>
+                <input class="form-control" formControlName="mainTeacher"/>
+                <div *ngIf="mainTeacher.invalid && (mainTeacher.dirty || mainTeacher.touched)" class="alert alert-danger">
+                  <div *ngIf="mainTeacher.errors.required">
+                    Hãy điền tên giáo viên
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="text-center">
+              <button class="btn btn-warning" (click)="saveClass()" [disabled]="classForm.invalid">Save</button>&nbsp;
+            </div>
+        </div>
+    </div>
+  </div> 

@@ -1,0 +1,29 @@
+<div class="container">
+  <div>
+     <h1 class="text-center">List School</h1>
+      <a routerLink="addSchool" class="btn btn-success">Add School</a>
+  </div><hr>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Name School</th>
+          <th>President</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let sc of schools">
+        <tr>         
+          <td><img [src]="sc.logo" class="img img-avatar" width="150"/></td>
+          <td>{{sc.name}}</td>
+          <td>{{sc.president}}</td>
+          <td><a class="btn btn-outline-primary" [routerLink]="['detail', sc.id]">Detail</a></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>  
+  </div>
+      </div>    
+        
